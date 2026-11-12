@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Atelier Flow</title>
+  <desc id="desc">A minimal thread and needle mark</desc>
+  <defs>
+    <linearGradient id="g" x1="20" y1="20" x2="140" y2="140" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="38" fill="#0f172a"/>
+  <path d="M48 42c35 0 64 25 64 57 0 14-8 25-20 25-11 0-18-8-18-19 0-14 13-27 38-27" fill="none" stroke="url(#g)" stroke-linecap="round" stroke-width="12"/>
+  <path d="m106 36 12 20-22 3" fill="none" stroke="#f8fafc" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+</svg>
