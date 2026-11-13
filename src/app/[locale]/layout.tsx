@@ -19,6 +19,7 @@ import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import { site } from "@/lib/site";
 import { skills } from "@/lib/data";
 import { buildAlternates } from "@/lib/seo";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -160,6 +161,7 @@ export default async function LocaleLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Analytics />
       </body>
     </html>
   );
