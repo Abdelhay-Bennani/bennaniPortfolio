@@ -296,6 +296,37 @@ button {
   overflow: hidden;
 }
 
+/* Lisibilite : la scene 3D passe derriere le texte sur petits ecrans. */
+@media (max-width: 1023px) {
+  .scroll-scene {
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 767px) {
+  .scroll-scene {
+    display: none;
+  }
+}
+
+:root:not([data-theme="light"]) .hero-title,
+:root:not([data-theme="light"]) .hero-description {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+:root:not([data-theme="light"]) .hero-description {
+  color: rgba(250, 246, 234, 0.82);
+}
+
+:root:not([data-theme="light"]) .hero-title .hero-gold {
+  text-shadow: none;
+}
+
+/* hero-rise anime filter sur le mot : l ombre se pose sur le parent. */
+:root:not([data-theme="light"]) .hero-title .hero-word:has(.hero-gold) {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.85));
+}
+
 .scroll-scene__canvas {
   opacity: 0.9;
   width: 100%;

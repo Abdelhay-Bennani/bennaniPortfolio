@@ -65,7 +65,7 @@ function HeroTitle({
   return (
     <h1
       aria-label={`${start} ${highlight} ${end}`}
-      className="mb-5 text-[2.6rem] font-bold leading-[1.05] tracking-[-0.03em] sm:text-[3.2rem] md:text-[4.5rem]"
+      className="hero-title mb-5 text-[2.6rem] font-bold leading-[1.05] tracking-[-0.03em] sm:text-[3.2rem] md:text-[4.5rem]"
     >
       {nodes}
     </h1>
@@ -84,7 +84,7 @@ export function Hero({ t, locale }: SectionProps) {
         highlight={t.hero.titleHighlight}
         end={t.hero.titleEnd}
       />
-      <p className="mb-8 max-w-[680px] text-lg leading-[1.7] text-muted-foreground">
+      <p className="hero-description mb-8 max-w-[680px] text-lg leading-[1.7] text-muted-foreground">
         {t.hero.description}
       </p>
       <div className="flex flex-col gap-3 sm:flex-row">
