@@ -1,5 +1,4 @@
 import type { CSSProperties, ReactNode } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -24,12 +23,11 @@ import {
 import { site } from "@/lib/site";
 import NameCanvas from "@/components/scene/NameCanvas";
 import ScrollReveal from "@/components/scene/ScrollReveal";
+import ProjectCarousel from "@/components/ui/ProjectCarousel";
 import Accordion from "@/components/ui/Accordion";
 import { Section } from "@/components/ui/Section";
 
 type SectionProps = { t: Messages; locale: Locale };
-
-const containImages = new Set(["/projects/axilum.png", "/projects/barji-net.svg"]);
 
 function HeroTitle({
   start,
@@ -199,65 +197,25 @@ export function Approach({ t }: SectionProps) {
 }
 
 export function Selection({ t, locale }: SectionProps) {
+  const items = projects.map((project) => ({
+    slug: project.slug,
+    name: project.name,
+    url: project.url,
+    image: project.image,
+    category: project.category[locale],
+    description: project.description[locale],
+    tags: project.tags,
+  }));
   return (
     <Section id="projects" eyebrow={t.selection.eyebrow} title={t.selection.title}>
-      <div className="grid gap-5 sm:grid-cols-2">
-        {projects.map((project, index) => (
-          <article key={project.slug} className="card group flex flex-col overflow-hidden">
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative block aspect-[16/9] overflow-hidden bg-muted"
-            >
-              <Image
-                src={project.image}
-                alt={project.name}
-                fill
-                sizes="(min-width: 640px) 50vw, 100vw"
-                unoptimized={project.image.endsWith(".svg")}
-                className={`transition duration-500 group-hover:scale-[1.03] ${
-                  containImages.has(project.image)
-                    ? "object-contain p-8"
-                    : "object-cover object-top"
-                }`}
-              />
-              <span className="absolute start-3 top-3 rounded-full bg-background/70 px-2 py-0.5 font-mono text-[11px] text-foreground backdrop-blur">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-            </a>
-            <div className="flex flex-1 flex-col gap-3 p-5">
-              <div>
-                <h3 className="text-lg font-semibold">{project.name}</h3>
-                <p className="text-xs uppercase tracking-wider text-primary">
-                  {project.category[locale]}
-                </p>
-              </div>
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {project.description[locale]}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="chip">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto inline-flex items-center gap-1 pt-2 text-sm font-medium text-primary hover:underline"
-              >
-                {t.selection.view} <ArrowUpRight size={14} />
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
+      <ProjectCarousel
+        items={items}
+        labels={{ view: t.selection.view, prev: "‹", next: "›" }}
+      />
     </Section>
   );
 }
+
 
 export function Stack({ t }: SectionProps) {
   const doubled = [...skills, ...skills];
