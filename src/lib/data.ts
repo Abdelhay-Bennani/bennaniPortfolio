@@ -40,19 +40,6 @@ export const projects: Project[] = [
     tags: ["WordPress", "PHP"],
   },
   {
-    slug: "desertnomadtravel",
-    name: "Desert Nomad Travel",
-    url: "https://desertnomadtravel.com",
-    image: "/projects/desertnomadtravel.png",
-    category: { fr: "Agence de voyage", en: "Travel agency", ar: "وكالة أسفار" },
-    description: {
-      fr: "Site d'agence de voyage avec circuits, galeries et formulaires de réservation.",
-      en: "Travel agency website with tours, galleries and booking forms.",
-      ar: "موقع وكالة أسفار مع جولات ومعارض صور ونماذج حجز.",
-    },
-    tags: ["WordPress", "SEO"],
-  },
-  {
     slug: "violarecipes",
     name: "Viola Recipes",
     url: "https://violarecipes.com",
@@ -90,19 +77,6 @@ export const projects: Project[] = [
       ar: "موقع تعريفي بووردبريس لشركة مغربية.",
     },
     tags: ["WordPress", "PHP"],
-  },
-  {
-    slug: "benmoroccotours",
-    name: "Ben Morocco Tours",
-    url: "https://benmoroccotours.com",
-    image: "/projects/benmoroccotours.png",
-    category: { fr: "Tour opérateur", en: "Tour operator", ar: "منظم رحلات" },
-    description: {
-      fr: "Réservation de circuits en ligne avec WooCommerce et Elementor.",
-      en: "Online tour booking with WooCommerce and Elementor.",
-      ar: "حجز الجولات عبر الإنترنت باستخدام WooCommerce و Elementor.",
-    },
-    tags: ["WooCommerce", "Elementor"],
   },
   {
     slug: "barji-net",
@@ -401,7 +375,7 @@ export const languages: { name: Localized; level: Localized }[] = [
 
 export const stats = [
   { value: "6+", key: "years" },
-  { value: "13", key: "projects" },
+  { value: "11", key: "projects" },
   { value: "WP", key: "wp" },
   { value: "MA", key: "based" },
 ] as const;
