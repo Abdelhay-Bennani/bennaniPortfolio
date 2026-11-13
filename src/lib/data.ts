@@ -163,6 +163,7 @@ export const skills = [
 export type Experience = {
   company: string;
   period: Localized;
+  duration?: Localized;
   role: Localized;
   bullets: Record<Locale, string[]>;
 };
@@ -171,6 +172,7 @@ export const experiences: Experience[] = [
   {
     company: "Weshore Agency",
     period: { fr: "Avr 2025 — Présent", en: "Apr 2025 — Present", ar: "أبريل 2025 — حتى الآن" },
+    duration: { fr: "1 an 8 mois", en: "1 yr 8 mos", ar: "سنة و8 أشهر" },
     role: { fr: "Développeur Web Full Stack", en: "Full Stack Web Developer", ar: "مطور ويب Full Stack" },
     bullets: {
       fr: [
@@ -199,6 +201,7 @@ export const experiences: Experience[] = [
   {
     company: "Freelance",
     period: { fr: "Avr 2023 — Avr 2025", en: "Apr 2023 — Apr 2025", ar: "أبريل 2023 — أبريل 2025" },
+    duration: { fr: "2 ans 1 mois", en: "2 yrs 1 mo", ar: "سنتان وشهر" },
     role: { fr: "Développeur WordPress", en: "WordPress Developer", ar: "مطور ووردبريس" },
     bullets: {
       fr: [
@@ -227,6 +230,7 @@ export const experiences: Experience[] = [
   {
     company: "INNOVAMACH",
     period: { fr: "Sep 2022 — Mar 2023", en: "Sep 2022 — Mar 2023", ar: "سبتمبر 2022 — مارس 2023" },
+    duration: { fr: "7 mois", en: "7 mos", ar: "7 أشهر" },
     role: { fr: "Développeur Web", en: "Web Developer", ar: "مطور ويب" },
     bullets: {
       fr: [
@@ -252,6 +256,7 @@ export const experiences: Experience[] = [
   {
     company: "Freelance",
     period: { fr: "Avr 2020 — Août 2022", en: "Apr 2020 — Aug 2022", ar: "أبريل 2020 — أغسطس 2022" },
+    duration: { fr: "2 ans 5 mois", en: "2 yrs 5 mos", ar: "سنتان و5 أشهر" },
     role: { fr: "Développeur WordPress", en: "WordPress Developer", ar: "مطور ووردبريس" },
     bullets: {
       fr: [
@@ -277,6 +282,7 @@ export const experiences: Experience[] = [
   {
     company: "DEVKIT-SIO",
     period: { fr: "Sep 2019 — Mar 2020", en: "Sep 2019 — Mar 2020", ar: "سبتمبر 2019 — مارس 2020" },
+    duration: { fr: "7 mois", en: "7 mos", ar: "7 أشهر" },
     role: { fr: "Développeur Web WordPress", en: "WordPress Web Developer", ar: "مطور ويب ووردبريس" },
     bullets: {
       fr: [

@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
+  CalendarDays,
   Code,
   Gauge,
   MapPin,
@@ -259,9 +260,20 @@ export function Timeline({
       {items.map((item, index) => (
         <li key={`${item.company}-${index}`} className="relative">
           <span className="timeline-dot" aria-hidden="true" />
-          <p className="font-mono text-xs text-primary">{item.period[locale]}</p>
-          <h3 className="mt-1 text-lg font-semibold">{item.company}</h3>
-          <p className="text-sm text-muted-foreground">{item.role[locale]}</p>
+          <h3 className="text-lg font-semibold">{item.role[locale]}</h3>
+          <p className="text-sm">{item.company}</p>
+          <p className="mt-1 flex flex-wrap items-center gap-x-2 text-sm text-muted-foreground">
+            <CalendarDays size={14} className="text-primary" aria-hidden="true" />
+            <span>{item.period[locale]}</span>
+            {item.duration && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span className="font-medium text-primary">
+                  {item.duration[locale]}
+                </span>
+              </>
+            )}
+          </p>
           <ul className="mt-3 flex list-disc flex-col gap-1 ps-4 text-sm leading-relaxed text-muted-foreground marker:text-primary">
             {item.bullets[locale].map((bullet) => (
               <li key={bullet}>{bullet}</li>
