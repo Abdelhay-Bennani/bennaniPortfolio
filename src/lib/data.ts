@@ -53,19 +53,6 @@ export const projects: Project[] = [
     tags: ["WordPress", "UX"],
   },
   {
-    slug: "bestplacesmorocco",
-    name: "Best Places Morocco",
-    url: "https://bestplacesmorocco.com",
-    image: "/projects/bestplacesmorocco.png",
-    category: { fr: "Tourisme", en: "Tourism", ar: "سياحة" },
-    description: {
-      fr: "Guide touristique du Maroc construit avec WordPress et Elementor.",
-      en: "Morocco travel guide built with WordPress and Elementor.",
-      ar: "دليل سياحي للمغرب مبني بووردبريس و Elementor.",
-    },
-    tags: ["WordPress", "Elementor"],
-  },
-  {
     slug: "barji-ma",
     name: "Barji.ma",
     url: "https://barji.ma",
@@ -375,7 +362,7 @@ export const languages: { name: Localized; level: Localized }[] = [
 
 export const stats = [
   { value: "6+", key: "years" },
-  { value: "11", key: "projects" },
+  { value: "10", key: "projects" },
   { value: "WP", key: "wp" },
   { value: "MA", key: "based" },
 ] as const;
