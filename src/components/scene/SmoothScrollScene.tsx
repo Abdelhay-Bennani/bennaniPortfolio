@@ -6,6 +6,7 @@ import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLocale } from "@/i18n/LocaleProvider";
+import { site } from "@/lib/site";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -405,12 +406,57 @@ export default function SmoothScrollScene({
         aria-live="polite"
       >
         <div className="scene-loader__content">
-          <span className="scene-loader__eyebrow">{t.loader.eyebrow}</span>
-          <p>{t.loader.text}</p>
-          <div className="scene-loader__track" aria-hidden="true">
-            <span style={{ width: `${progress}%` }} />
+          <div className="scene-loader__ring">
+            <span className="scene-loader__halo" aria-hidden="true" />
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <defs>
+                <linearGradient id="loader-gold" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#f8e39b" />
+                  <stop offset="55%" stopColor="#d4af37" />
+                  <stop offset="100%" stopColor="#9a7410" />
+                </linearGradient>
+              </defs>
+              <circle className="scene-loader__ring-track" cx="60" cy="60" r="54" />
+              <circle
+                className="scene-loader__ring-bar"
+                cx="60"
+                cy="60"
+                r="54"
+                pathLength={100}
+                strokeDasharray="100"
+                strokeDashoffset={100 - progress}
+              />
+            </svg>
+            <span className="scene-loader__orbit" aria-hidden="true">
+              {["{ }", "</>", "01", ";"].map((glyph) => (
+                <span key={glyph}>{glyph}</span>
+              ))}
+            </span>
+            <span className="scene-loader__monogram">
+              <span className="scene-loader__bracket">&lt;/</span>
+              AB
+              <span className="scene-loader__bracket">&gt;</span>
+            </span>
           </div>
-          <span className="scene-loader__percent">{Math.round(progress)}%</span>
+          <p className="scene-loader__name" aria-label={site.name}>
+            {site.name.split("").map((char, index) => (
+              <span
+                key={index}
+                aria-hidden="true"
+                style={{ animationDelay: `${index * 35}ms` }}
+              >
+                {char === " " ? " " : char}
+              </span>
+            ))}
+          </p>
+          <p className="scene-loader__text">
+            <span className="scene-loader__prompt" aria-hidden="true">&gt;</span>
+            {t.loader.text}
+            <span className="scene-loader__caret" aria-hidden="true" />
+          </p>
+          <span className="scene-loader__percent">
+            {String(Math.round(progress)).padStart(3, "0")}
+          </span>
         </div>
       </div>
       <div ref={sceneRef} className="scroll-scene" aria-hidden="true">
